@@ -1,5 +1,3 @@
-ls
-
 apt-get update
 
 # Install dependencies
@@ -17,7 +15,6 @@ cd /usr/src/pbc-0.5.14
 sh ./configure
 make
 make install
-echo "ldconfig pbc"
 ldconfig
 
 # Setup libbswabe-0.9
@@ -29,6 +26,7 @@ make install
 ldconfig
 
 # Setup cpabe-0.11
+echo "cpabe-0.11 setup"
 cd /usr/src/cpabe-0.11
 make
 make install
