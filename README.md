@@ -28,7 +28,7 @@ To test it out:
 1. Rebuild the Docker image
 2. Run the container
 3. Run these commands in order:
-cpabe-setup
-python3 setup.py
-python3 encrypt.py
-python3 decrypt.py
+   - `cpabe-setup`
+   - `python3 setup.py`
+   - `python3 encrypt.py`
+   - `python3 decrypt.py`
