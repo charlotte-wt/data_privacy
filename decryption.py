@@ -5,31 +5,37 @@ import base64
 
 class Decryption:
     # constructor
-    def __init__(self, file_name, employee_id):
+    def __init__(self, file_name, user_id):
         # Instance variables of class
 
         # Read the encrypted file
         self.data_dir = "data"
         self.file_name = file_name
         self.encrypted_user_marketing_info = pd.read_csv(f"{self.data_dir}/{file_name}.csv", encoding='utf-8')
-        self.queried = self.encrypted_user_marketing_info[self.encrypted_user_marketing_info['InternalUserId'] == employee_id]
+        self.queried = self.encrypted_user_marketing_info[self.encrypted_user_marketing_info['InternalUserId'] == user_id]
 
-        self.employee_id = employee_id # E-f12dfc5e-c57c-498e-ae88-661f49e986d6
+        self.user_id = user_id # E-f12dfc5e-c57c-498e-ae88-661f49e986d6
 
-        # Where to retrieve the private keys
-        self.private_key_directory = "private-keys"
-        
         # Where to retrieve the private keys
         self.private_key_directory = "private-keys"
 
         # Name of private key file
-        self.priv_key = f'{self.private_key_directory}/{employee_id}_priv_key'
+        self.priv_key = f'{self.private_key_directory}/{user_id}_priv_key'
 
     '''
     Wrapper function to do decryption based on content in instance variables
     '''
     def do_decryption(self):
         print(self.decrypt_rows(self.encrypted_user_marketing_info))
+
+    def set_filename(self, filename):
+        self.file_name = filename
+        self.encrypted_user_marketing_info = pd.read_csv(f"{self.data_dir}/{file_name}.csv", encoding='utf-8')
+        self.queried = self.encrypted_user_marketing_info[self.encrypted_user_marketing_info['InternalUserId'] == user_id] 
+
+    def set_user_id(self, uid):
+        self.user_id = uid
+        self.priv_key = f'{self.private_key_directory}/{user_id}_priv_key'
 
     '''
     Wrapper function to decrypt all rows of a given dataframe
