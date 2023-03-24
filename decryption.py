@@ -11,8 +11,14 @@ class Decryption:
         # Read the encrypted file
         self.data_dir = "data"
         self.file_name = file_name
-        self.encrypted_user_marketing_info = pd.read_csv(f"{self.data_dir}/{file_name}.csv", encoding='utf-8')
-        self.queried = self.encrypted_user_marketing_info[self.encrypted_user_marketing_info['InternalUserId'] == user_id]
+
+        if (self.file_name != ''):
+            self.encrypted_user_marketing_info = pd.read_csv(f"{self.data_dir}/{self.file_name}.csv", encoding='utf-8')
+            self.queried = self.encrypted_user_marketing_info[self.encrypted_user_marketing_info['InternalUserId'] == user_id]
+        else:
+            self.encrypted_user_marketing_info = None
+            self.queried = None
+        
 
         self.user_id = user_id # E-f12dfc5e-c57c-498e-ae88-661f49e986d6
 
@@ -20,7 +26,7 @@ class Decryption:
         self.private_key_directory = "private-keys"
 
         # Name of private key file
-        self.priv_key = f'{self.private_key_directory}/{user_id}_priv_key'
+        self.priv_key = f'{self.private_key_directory}/{self.user_id}_priv_key'
 
     '''
     Wrapper function to do decryption based on content in instance variables
@@ -30,12 +36,12 @@ class Decryption:
 
     def set_filename(self, filename):
         self.file_name = filename
-        self.encrypted_user_marketing_info = pd.read_csv(f"{self.data_dir}/{file_name}.csv", encoding='utf-8')
-        self.queried = self.encrypted_user_marketing_info[self.encrypted_user_marketing_info['InternalUserId'] == user_id] 
+        self.encrypted_user_marketing_info = pd.read_csv(f"{self.data_dir}/{self.file_name}.csv", encoding='utf-8')
+        self.queried = self.encrypted_user_marketing_info[self.encrypted_user_marketing_info['InternalUserId'] == self.user_id] 
 
     def set_user_id(self, uid):
         self.user_id = uid
-        self.priv_key = f'{self.private_key_directory}/{user_id}_priv_key'
+        self.priv_key = f'{self.private_key_directory}/{self.user_id}_priv_key'
 
     '''
     Wrapper function to decrypt all rows of a given dataframe
