@@ -30,5 +30,5 @@ To test it out:
 3. Run these commands in order:
    - `cpabe-setup`
    - `python3 setup.py`
-   - `python3 encrypt.py`
-   - `python3 decrypt.py`
+   - `python3 encryption.py`
+   - `python3 decryption.py`
