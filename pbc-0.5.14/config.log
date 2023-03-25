@@ -27,8 +27,6 @@ uname -v = #1 SMP Fri Apr 2 22:23:49 UTC 2021
 /usr/bin/oslevel       = unknown
 /bin/universe          = unknown
 
-PATH: /home/jenniferp2020/.local/bin
-PATH: /home/jenniferp2020/bin
 PATH: /usr/local/sbin
 PATH: /usr/local/bin
 PATH: /usr/sbin
@@ -91,10 +89,6 @@ PATH: /mnt/c/Program Files/Java/jdk-15.0.1/bin
 PATH: /mnt/c/Users/jeist/AppData/Local/Android/Sdk/platform-tools
 PATH: /mnt/c/Program Files/Tesseract-OCR
 PATH: /snap/bin
-PATH: /home/jenniferp2020/binn
-PATH: /home/jenniferp2020/binn
-PATH: /home/jenniferp2020/binn
-PATH: /home/jenniferp2020/binn
 
 
 ## ----------- ##
@@ -2967,7 +2961,7 @@ lt_cv_to_tool_file_cmd=func_convert_file_noop
 ## Output variables. ##
 ## ----------------- ##
 
-ACLOCAL='${SHELL} /home/jenniferp2020/pbc-0.5.14/missing --run aclocal-1.11'
+ACLOCAL='${SHELL} /usr/src/pbc-0.5.14/missing --run aclocal-1.11'
 ALLOCA=''
 AMDEPBACKSLASH='\'
 AMDEP_FALSE='#'
@@ -2975,9 +2969,9 @@ AMDEP_TRUE=''
 AMTAR='$${TAR-tar}'
 AR='ar'
 AS='as'
-AUTOCONF='${SHELL} /home/jenniferp2020/pbc-0.5.14/missing --run autoconf'
-AUTOHEADER='${SHELL} /home/jenniferp2020/pbc-0.5.14/missing --run autoheader'
-AUTOMAKE='${SHELL} /home/jenniferp2020/pbc-0.5.14/missing --run automake-1.11'
+AUTOCONF='${SHELL} /usr/src/pbc-0.5.14/missing --run autoconf'
+AUTOHEADER='${SHELL} /usr/src/pbc-0.5.14/missing --run autoheader'
+AUTOMAKE='${SHELL} /usr/src/pbc-0.5.14/missing --run automake-1.11'
 AWK='gawk'
 CC='gcc'
 CCDEPMODE='depmode=gcc3'
@@ -3014,7 +3008,7 @@ LIBTOOL='$(SHELL) $(top_builddir)/libtool'
 LIPO=''
 LN_S='ln -s'
 LTLIBOBJS=''
-MAKEINFO='${SHELL} /home/jenniferp2020/pbc-0.5.14/missing --run makeinfo'
+MAKEINFO='${SHELL} /usr/src/pbc-0.5.14/missing --run makeinfo'
 MANIFEST_TOOL=':'
 MKDIR_P='/usr/bin/mkdir -p'
 NM='/usr/bin/nm -B'
@@ -3073,7 +3067,7 @@ host_vendor='unknown'
 htmldir='${docdir}'
 includedir='${prefix}/include'
 infodir='${datarootdir}/info'
-install_sh='${SHELL} /home/jenniferp2020/pbc-0.5.14/install-sh'
+install_sh='${SHELL} /usr/src/pbc-0.5.14/install-sh'
 libdir='${exec_prefix}/lib'
 libexecdir='${exec_prefix}/libexec'
 localedir='${datarootdir}/locale'

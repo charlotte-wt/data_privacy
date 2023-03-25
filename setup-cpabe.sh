@@ -21,14 +21,18 @@ ldconfig
 echo "libbswabe setup"
 cd /usr/src/libbswabe-0.9
 sh ./configure
+chmod a+x -R .
 make
+chmod a+x -R .
 make install
 ldconfig
 
 # Setup cpabe-0.11
 echo "cpabe-0.11 setup"
 cd /usr/src/cpabe-0.11
+chmod a+x -R .
 make
+chmod a+x -R .
 make install
 ldconfig
 
