@@ -69,8 +69,8 @@ while True:
         continue
 
     print('Welcome!')
-    current_user_internal_id = app_user_info.loc[app_user_info['LoginUserId'] == try_id]["InternalUserId"]
-    current_user_role = app_user_info.loc[app_user_info['LoginUserId'] == try_id]["UserRole"]
+    current_user_internal_id = list(app_user_info.loc[app_user_info['LoginUserId'] == try_id]["InternalUserId"])[0]
+    current_user_role = list(app_user_info.loc[app_user_info['LoginUserId'] == try_id]["UserRole"])[0]
     while True:
         print('**********************************************************************************')
         print(f'Internal User ID: {current_user_internal_id}')
