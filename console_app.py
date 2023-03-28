@@ -2,7 +2,8 @@ import base64
 import bcrypt
 import hashlib
 import pandas as pd
-# import encryption, decryption
+# import encryption
+import decryption
 
 '''
 Load data from AppUserInfo2.csv
@@ -20,9 +21,11 @@ def hash_pwd(user_id: str, pwd: str):
 '''
 Retrieve user's profile details
 '''
-def view_profile():
+def view_profile(decrypt: decryption.Decryption):
     # TO IMPLEMENT
     print('function 1')
+    decrypt.set_filename('EncryptedUserMarketingInfo')
+    decrypt.do_decryption()
 
 '''
 Retrieve user's transaction details
@@ -30,6 +33,8 @@ Retrieve user's transaction details
 def view_transactions():
     # TO IMPLEMENT
     print('function 2')
+    # decrypt.set_filename('EncryptedTransactionsDataInfo')
+    # decrypt.do_decryption()
 
 '''
 Retrieve other user's profile details
@@ -61,16 +66,24 @@ while True:
     print('\n****** LOGIN ******')
     try_id = input('User ID: ')
     try_pwd = input('Password: ')
+    # print(list(app_user_info.loc[app_user_info['LoginUserId'] == try_id]['Password'])[0])
+    # print(hash_pwd(try_id, try_pwd))
     if len(app_user_info.loc[app_user_info['LoginUserId'] == try_id]) == 0 or \
-        (app_user_info.loc[app_user_info['LoginUserId'] == try_id]['Password'][0] != hash_pwd(try_id, try_pwd)):
+        (list(app_user_info.loc[app_user_info['LoginUserId'] == try_id]['Password'])[0] != hash_pwd(try_id, try_pwd)):
         print('Invalid login attempt, returning to main screen\n')
         continue
 
     print('Welcome!')
-    current_user = app_user_info.loc[app_user_info['LoginUserId'] == try_id]
+    current_internal_user_id = list(app_user_info.loc[app_user_info['LoginUserId'] == try_id]["InternalUserId"])[0]
+    current_user_role = list(app_user_info.loc[app_user_info['LoginUserId'] == try_id]["UserRole"])[0]
+
+    decrypt = decryption.Decryption('InternalUserInfo2', current_internal_user_id)
+    decrypt.set_user_id(current_internal_user_id)
+
     while True:
         print('**********************************************************************************')
-        print(f'Role: {current_user["UserRole"][0]}')
+        print(f'Internal User ID: {current_internal_user_id}')
+        print(f'Role: {current_user_role}')
         print('[0] Logout')
         print('[1] View your own profile')
         print('[2] View your own transactions')
@@ -84,7 +97,7 @@ while True:
             print('You are now logged out.\n\n')
             break
         if option == '1':
-            view_profile()
+            view_profile(decrypt)
         elif option == '2':
             view_transactions()
         elif option == '3':

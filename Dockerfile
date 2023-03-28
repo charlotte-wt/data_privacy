@@ -12,6 +12,8 @@ COPY setup-cpabe.sh .
 COPY setup.py .
 COPY encryption.py .
 COPY decryption.py .
+COPY console_app.py .
+COPY test_console.py .
 COPY requirements.txt .
 
 RUN sh setup-cpabe.sh
