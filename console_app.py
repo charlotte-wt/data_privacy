@@ -5,10 +5,10 @@ import pandas as pd
 # import encryption, decryption
 
 '''
-Load data from AppUserInfo2.csv
+Load data from AppUserInfo3.csv
 '''
 def load_appuserinfo():
-    return pd.read_csv('data/AppUserInfo2.csv')
+    return pd.read_csv('data/AppUserInfo3.csv')
 
 '''
 Return hashed password after encryption
