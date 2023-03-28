@@ -61,16 +61,20 @@ while True:
     print('\n****** LOGIN ******')
     try_id = input('User ID: ')
     try_pwd = input('Password: ')
+    # print(list(app_user_info.loc[app_user_info['LoginUserId'] == try_id]['Password'])[0])
+    # print(hash_pwd(try_id, try_pwd))
     if len(app_user_info.loc[app_user_info['LoginUserId'] == try_id]) == 0 or \
-        (app_user_info.loc[app_user_info['LoginUserId'] == try_id]['Password'][0] != hash_pwd(try_id, try_pwd)):
+        (list(app_user_info.loc[app_user_info['LoginUserId'] == try_id]['Password'])[0] != hash_pwd(try_id, try_pwd)):
         print('Invalid login attempt, returning to main screen\n')
         continue
 
     print('Welcome!')
-    current_user = app_user_info.loc[app_user_info['LoginUserId'] == try_id]
+    current_user_internal_id = app_user_info.loc[app_user_info['LoginUserId'] == try_id]["InternalUserId"]
+    current_user_role = app_user_info.loc[app_user_info['LoginUserId'] == try_id]["UserRole"]
     while True:
         print('**********************************************************************************')
-        print(f'Role: {current_user["UserRole"][0]}')
+        print(f'Internal User ID: {current_user_internal_id}')
+        print(f'Role: {current_user_role}')
         print('[0] Logout')
         print('[1] View your own profile')
         print('[2] View your own transactions')
