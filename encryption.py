@@ -16,8 +16,8 @@ def encrypt_marketing_data():
     user_marketing_access_policy = {
         "FullName": "customer_support or (finance and VP) or marketing",
         "NRIC": "customer_support or (finance and VP) or (marketing and VP)",
-        "PhoneNumber": "customer_support or (finance and VP) or (marketing and VP) or (marketing and senior)",
-        "Email": "customer_support or (finance and VP) or (marketing and VP) or (marketing and senior)",
+        "PhoneNumber": "customer_support or (finance and VP) or (marketing and VP) or (marketing and Senior)",
+        "Email": "customer_support or (finance and VP) or (marketing and VP) or (marketing and Senior)",
         "age": "customer_support or (finance and VP) or marketing",
         "job": "customer_support or (finance and VP) or marketing",
         "marital": "customer_support or (finance and VP) or marketing",
@@ -60,7 +60,7 @@ def encrypt_transactions_data():
     # Define all row-wise policies here
     row_policy = [[
         f"(customer and {user_id})", 
-        f"(finance and {country})",
+        f"(finance and {country} and (VP or Senior or Junior))",
         f"(finance and Intern and {country} and Date > {_convert_datetime(date)})"
         ] for user_id, country, date in 
         zip(user_ids, transactions_data_info['OrigCountry'], transactions_data_info['TransactionDate'])]
