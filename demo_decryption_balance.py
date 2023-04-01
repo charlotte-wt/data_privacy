@@ -2,14 +2,16 @@ import subprocess
 import tempfile
 import pandas as pd
 import base64
+import sys
+import time
+
+start_time = time.time()
 
 # Read the encrypted file
 data_dir = "data"
-encrypted_user_balance_info = pd.read_csv(f"{data_dir}/EncryptedUserBalanceInfo.csv", encoding='utf-8')
+encrypted_user_balance_info = pd.read_csv(f"{data_dir}/Demo_EncryptedUserBalanceInfo.csv", encoding='utf-8')
 
-queried = encrypted_user_balance_info[encrypted_user_balance_info['InternalUserId'] == 'C-ec85437f-d70c-4fc3-8990-9c685fe5827a']
-
-employee_id = 'E-8531fbee-2876-4b5c-af38-e493e2c3c70a'
+employee_id = sys.argv[1]
 
 # Where to retrieve the private keys
 private_key_directory = "private-keys"
@@ -76,3 +78,4 @@ def _decrypt_row(row: pd.Series):
     return pd.DataFrame(decrypted_row)
 
 print(decrypt_rows(encrypted_user_balance_info))
+print("Time taken to decrypt balance: ", time.time() - start_time)
