@@ -2,7 +2,8 @@ import base64
 import bcrypt
 import hashlib
 import pandas as pd
-# import encryption, decryption
+# import encryption
+import decryption
 
 '''
 Load data from AppUserInfo3.csv
@@ -20,9 +21,11 @@ def hash_pwd(user_id: str, pwd: str):
 '''
 Retrieve user's profile details
 '''
-def view_profile():
+def view_profile(decrypt: decryption.Decryption):
     # TO IMPLEMENT
     print('function 1')
+    decrypt.set_filename('EncryptedUserMarketingInfo')
+    decrypt.do_decryption()
 
 '''
 Retrieve user's transaction details
@@ -30,6 +33,8 @@ Retrieve user's transaction details
 def view_transactions():
     # TO IMPLEMENT
     print('function 2')
+    # decrypt.set_filename('EncryptedTransactionsDataInfo')
+    # decrypt.do_decryption()
 
 '''
 Retrieve other user's profile details
@@ -88,7 +93,7 @@ while True:
             print('You are now logged out.\n\n')
             break
         if option == '1':
-            view_profile()
+            view_profile(decrypt)
         elif option == '2':
             view_transactions()
         elif option == '3':
