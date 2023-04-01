@@ -104,12 +104,12 @@ while True:
             view_transactions(current_user_internal_id)
         elif option == '3':
             query_id = input('Enter the User ID of the user you want to query for: ')
-            query_id_login = list(app_user_info.loc[app_user_info['LoginUserId'] == query_id]["InternalUserId"])[0]
-            query_profile(query_id_login, current_user_internal_id)
+            # query_id_login = list(app_user_info.loc[app_user_info['LoginUserId'] == query_id]["InternalUserId"])[0]
+            query_profile(query_id, current_user_internal_id)
         elif option == '4':
             query_id = input('Enter the User ID of the user you want to query for: ')
-            query_id_login = list(app_user_info.loc[app_user_info['LoginUserId'] == query_id]["InternalUserId"])[0]
-            query_transactions(query_id_login, current_user_internal_id)
+            # query_id_login = list(app_user_info.loc[app_user_info['LoginUserId'] == query_id]["InternalUserId"])[0]
+            query_transactions(query_id, current_user_internal_id)
         print()
 
 
