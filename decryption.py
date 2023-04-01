@@ -13,10 +13,10 @@ class Decryption:
         self.file_name = file_name
 
         if (self.file_name != ''):
-            self.encrypted_user_marketing_info = pd.read_csv(f"{self.data_dir}/{self.file_name}.csv", encoding='utf-8')
-            self.queried = self.encrypted_user_marketing_info[self.encrypted_user_marketing_info['InternalUserId'] == user_id]
+            self.encrypted_info = pd.read_csv(f"{self.data_dir}/{self.file_name}.csv", encoding='utf-8')
+            self.queried = self.encrypted_info[self.encrypted_info['InternalUserId'] == user_id]
         else:
-            self.encrypted_user_marketing_info = None
+            self.encrypted_info = None
             self.queried = None
         
 
@@ -32,12 +32,12 @@ class Decryption:
     Wrapper function to do decryption based on content in instance variables
     '''
     def do_decryption(self):
-        print(self.decrypt_rows(self.encrypted_user_marketing_info))
+        print(self.decrypt_rows(self.encrypted_info))
 
     def set_filename(self, filename):
         self.file_name = filename
-        self.encrypted_user_marketing_info = pd.read_csv(f"{self.data_dir}/{self.file_name}.csv", encoding='utf-8')
-        self.queried = self.encrypted_user_marketing_info[self.encrypted_user_marketing_info['InternalUserId'] == self.user_id] 
+        self.encrypted_info = pd.read_csv(f"{self.data_dir}/{self.file_name}.csv", encoding='utf-8')
+        self.queried = self.encrypted_info[self.encrypted_info['InternalUserId'] == self.user_id] 
 
     def set_user_id(self, uid):
         self.user_id = uid
