@@ -1,0 +1,295 @@
+Script started on 2023-04-01 15:25:16+00:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="178" LINES="25"]
+[?2004hroot@fae5250a36da:/usr/src# python3 console_app.py
+[?2004l*****************
+***CONSOLE APP***
+*****************
+Enter "0" to quit, enter any other key to login: 1
+
+****** LOGIN ******
+User ID: vVvFDdYq
+Password: yxcVzZUCfA
+Welcome!
+**********************************************************************************
+Internal User ID: C-773729af-78e0-44c9-af97-4380e78d45d4
+Role: customer
+[0] Logout
+[1] View your own profile
+[2] View your own transactions
+[3] Query another user's profile
+[4] Query another user's transactions
+Enter option number: 1
+function 1
+successfuly queried :>
+                           InternalUserId                      Email        FullName PhoneNumber       NRIC       job age marital  education
+0  C-773729af-78e0-44c9-af97-4380e78d45d4  stephaniebell@example.org  Carlos Sanchez    94716639  S6561645M  services  29  single  secondary
+
+**********************************************************************************
+Internal User ID: C-773729af-78e0-44c9-af97-4380e78d45d4
+Role: customer
+[0] Logout
+[1] View your own profile
+[2] View your own transactions
+[3] Query another user's profile
+[4] Query another user's transactions
+Enter option number: 2
+function 2
+successfuly queried :>
+      TransactionId                    OriginInternalUserId      Type    Amount OriginAccNumber OriginOldBalance OriginNewBalance DestAccNumber TransactionDate OrigCountry
+0  TRF-UbIJFLFkfhbq  C-773729af-78e0-44c9-af97-4380e78d45d4   PAYMENT   2724.24     C1431556341         453534.0        450809.76   M1850646717      2020-07-11          SG
+1  TRF-rQuaOVkCHUwd  C-773729af-78e0-44c9-af97-4380e78d45d4   PAYMENT   8271.42      C754072705          42030.0         33758.58    M982634822      2022-10-12          ID
+2  TRF-AeHaZycdyBQL  C-773729af-78e0-44c9-af97-4380e78d45d4     DEBIT   3462.64      C816944408          66331.0         62868.36   C2094777811      2020-10-23          MY
+3  TRF-acTwpaUHUePp  C-773729af-78e0-44c9-af97-4380e78d45d4  CASH_OUT  101485.5     C1756207614         27842.03              0.0   C1850180796      2022-02-15          SG
+4  TRF-NFZjEpyBXMBg  C-773729af-78e0-44c9-af97-4380e78d45d4  CASH_OUT  60214.51      C837246227         10914.66              0.0   C1870252780      2017-10-12          ID
+
+**********************************************************************************
+Internal User ID: C-773729af-78e0-44c9-af97-4380e78d45d4
+Role: customer
+[0] Logout
+[1] View your own profile
+[2] View your own transactions
+[3] Query another user's profile
+[4] Query another user's transactions
+Enter option number: 3
+Enter the User ID of the user you want to query for: C-96d67600-3798-4cbf-a774-87388f4b63ae
+function 3
+successfuly queried :>
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+                           InternalUserId     Email  FullName PhoneNumber      NRIC       job       age   marital education
+0  C-96d67600-3798-4cbf-a774-87388f4b63ae  REDACTED  REDACTED    REDACTED  REDACTED  REDACTED  REDACTED  REDACTED  REDACTED
+
+**********************************************************************************
+Internal User ID: C-773729af-78e0-44c9-af97-4380e78d45d4
+Role: customer
+[0] Logout
+[1] View your own profile
+[2] View your own transactions
+[3] Query another user's profile
+[4] Query another user's transactions
+Enter option number: 4
+Enter the User ID of the user you want to query for: C-96d67600-3798-4cbf-a774-87388f4b63ae
+function 4 C-96d67600-3798-4cbf-a774-87388f4b63ae C-773729af-78e0-44c9-af97-4380e78d45d4
+successfuly queried :>
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+      TransactionId                    OriginInternalUserId      Type    Amount OriginAccNumber OriginOldBalance OriginNewBalance DestAccNumber TransactionDate OrigCountry
+0  TRF-VWxMHFCFBwMQ  C-96d67600-3798-4cbf-a774-87388f4b63ae  REDACTED  REDACTED        REDACTED         REDACTED         REDACTED      REDACTED        REDACTED    REDACTED
+1  TRF-usAMrHAicRWh  C-96d67600-3798-4cbf-a774-87388f4b63ae  REDACTED  REDACTED        REDACTED         REDACTED         REDACTED      REDACTED        REDACTED    REDACTED
+2  TRF-qNjxyTUBHDJf  C-96d67600-3798-4cbf-a774-87388f4b63ae  REDACTED  REDACTED        REDACTED         REDACTED         REDACTED      REDACTED        REDACTED    REDACTED
+3  TRF-uEJHQiRHCPDp  C-96d67600-3798-4cbf-a774-87388f4b63ae  REDACTED  REDACTED        REDACTED         REDACTED         REDACTED      REDACTED        REDACTED    REDACTED
+4  TRF-mIuSyeBTtMQZ  C-96d67600-3798-4cbf-a774-87388f4b63ae  REDACTED  REDACTED        REDACTED         REDACTED         REDACTED      REDACTED        REDACTED    REDACTED
+
+**********************************************************************************
+Internal User ID: C-773729af-78e0-44c9-af97-4380e78d45d4
+Role: customer
+[0] Logout
+[1] View your own profile
+[2] View your own transactions
+[3] Query another user's profile
+[4] Query another user's transactions
+Enter option number: 0
+You are now logged out.
+
+
+*****************
+***CONSOLE APP***
+*****************
+Enter "0" to quit, enter any other key to login: 1
+
+****** LOGIN ******
+User ID: WRwykyCY
+Password: YhjHxSOYyL
+Welcome!
+**********************************************************************************
+Internal User ID: E-a67fb2ee-e94b-4238-9d40-6b2aa8a55f40
+Role: finance
+[0] Logout
+[1] View your own profile
+[2] View your own transactions
+[3] Query another user's profile
+[4] Query another user's transactions
+Enter option number: 3
+Enter the User ID of the user you want to query for: C-773729af-78e0-44c9-af97-4380e78d45d4
+function 3
+successfuly queried :>
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+                           InternalUserId     Email  FullName PhoneNumber      NRIC       job       age   marital education
+0  C-773729af-78e0-44c9-af97-4380e78d45d4  REDACTED  REDACTED    REDACTED  REDACTED  REDACTED  REDACTED  REDACTED  REDACTED
+
+**********************************************************************************
+Internal User ID: E-a67fb2ee-e94b-4238-9d40-6b2aa8a55f40
+Role: finance
+[0] Logout
+[1] View your own profile
+[2] View your own transactions
+[3] Query another user's profile
+[4] Query another user's transactions
+Enter option number: 4
+Enter the User ID of the user you want to query for: C-773729af-78e0-44c9-af97-4380e78d45d4
+function 4 C-773729af-78e0-44c9-af97-4380e78d45d4 E-a67fb2ee-e94b-4238-9d40-6b2aa8a55f40
+successfuly queried :>
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+cannot decrypt, attributes in key do not satisfy policy
+      TransactionId                    OriginInternalUserId      Type    Amount OriginAccNumber OriginOldBalance OriginNewBalance DestAccNumber TransactionDate OrigCountry
+0  TRF-UbIJFLFkfhbq  C-773729af-78e0-44c9-af97-4380e78d45d4  REDACTED  REDACTED        REDACTED         REDACTED         REDACTED      REDACTED        REDACTED    REDACTED
+1  TRF-rQuaOVkCHUwd  C-773729af-78e0-44c9-af97-4380e78d45d4  REDACTED  REDACTED        REDACTED         REDACTED         REDACTED      REDACTED        REDACTED    REDACTED
+2  TRF-AeHaZycdyBQL  C-773729af-78e0-44c9-af97-4380e78d45d4  REDACTED  REDACTED        REDACTED         REDACTED         REDACTED      REDACTED        REDACTED    REDACTED
+3  TRF-acTwpaUHUePp  C-773729af-78e0-44c9-af97-4380e78d45d4  REDACTED  REDACTED        REDACTED         REDACTED         REDACTED      REDACTED        REDACTED    REDACTED
+4  TRF-NFZjEpyBXMBg  C-773729af-78e0-44c9-af97-4380e78d45d4  CASH_OUT  60214.51      C837246227         10914.66              0.0   C1870252780      2017-10-12          ID
+
+**********************************************************************************
+Internal User ID: E-a67fb2ee-e94b-4238-9d40-6b2aa8a55f40
+Role: finance
+[0] Logout
+[1] View your own profile
+[2] View your own transactions
+[3] Query another user's profile
+[4] Query another user's transactions
+Enter option number: 0
+You are now logged out.
+
+
+*****************
+***CONSOLE APP***
+*****************
+Enter "0" to quit, enter any other key to login: 1
+
+****** LOGIN ******
+User ID: WeVHoVNQ
+Password: isnswUWdsb
+Welcome!
+**********************************************************************************
+Internal User ID: E-8d5088ce-5547-473c-8b09-baf36f514065
+Role: customer support
+[0] Logout
+[1] View your own profile
+[2] View your own transactions
+[3] Query another user's profile
+[4] Query another user's transactions
+Enter option number: 3
+Enter the User ID of the user you want to query for: C-773729af-78e0-44c9-af97-4380e78d45d4
+function 3
+successfuly queried :>
+                           InternalUserId                      Email        FullName PhoneNumber       NRIC       job age marital  education
+0  C-773729af-78e0-44c9-af97-4380e78d45d4  stephaniebell@example.org  Carlos Sanchez    94716639  S6561645M  services  29  single  secondary
+
+**********************************************************************************
+Internal User ID: E-8d5088ce-5547-473c-8b09-baf36f514065
+Role: customer support
+[0] Logout
+[1] View your own profile
+[2] View your own transactions
+[3] Query another user's profile
+[4] Query another user's transactions
+Enter option number: 4
+Enter the User ID of the user you want to query for: C-773729af-78e0-44c9-af97-4380e78d45d4
+function 4 C-773729af-78e0-44c9-af97-4380e78d45d4 E-8d5088ce-5547-473c-8b09-baf36f514065
+successfuly queried :>
+      TransactionId                    OriginInternalUserId      Type    Amount OriginAccNumber OriginOldBalance OriginNewBalance DestAccNumber TransactionDate OrigCountry
+0  TRF-UbIJFLFkfhbq  C-773729af-78e0-44c9-af97-4380e78d45d4   PAYMENT   2724.24     C1431556341         453534.0        450809.76   M1850646717      2020-07-11          SG
+1  TRF-rQuaOVkCHUwd  C-773729af-78e0-44c9-af97-4380e78d45d4   PAYMENT   8271.42      C754072705          42030.0         33758.58    M982634822      2022-10-12          ID
+2  TRF-AeHaZycdyBQL  C-773729af-78e0-44c9-af97-4380e78d45d4     DEBIT   3462.64      C816944408          66331.0         62868.36   C2094777811      2020-10-23          MY
+3  TRF-acTwpaUHUePp  C-773729af-78e0-44c9-af97-4380e78d45d4  CASH_OUT  101485.5     C1756207614         27842.03              0.0   C1850180796      2022-02-15          SG
+4  TRF-NFZjEpyBXMBg  C-773729af-78e0-44c9-af97-4380e78d45d4  CASH_OUT  60214.51      C837246227         10914.66              0.0   C1870252780      2017-10-12          ID
+
+**********************************************************************************
+Internal User ID: E-8d5088ce-5547-473c-8b09-baf36f514065
+Role: customer support
+[0] Logout
+[1] View your own profile
+[2] View your own transactions
+[3] Query another user's profile
+[4] Query another user's transactions
+Enter option number: 0
+You are now logged out.
+
+
+*****************
+***CONSOLE APP***
+*****************
+Enter "0" to quit, enter any other key to login: 0
+[?2004hroot@fae5250a36da:/usr/src# exit
+[?2004lexit
+
+Script done on 2023-04-01 15:27:42+00:00 [COMMAND_EXIT_CODE="0"]

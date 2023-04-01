@@ -33,5 +33,16 @@ To test it out:
 
 1. Rebuild the Docker image
 2. Run the container
-3. Run `python3 setup.py` to generate keys and encrypt files
+3. Run `python3 setup.py` to generate keys (master, public, and private) and encrypt (entire) files
 4. Run `python3 test_console.py` to see how the decryption class is utilised
+5. Run `python3 console_app.py` to launch console app
+
+# Console App Demo
+
+Run `scriptreplay --timing=app_time.tm app_demo` to view an automatic replay of console app. Details about the demo users are listed in IdealUsers.txt.
+
+# Mock Setup Demo
+
+1. Run `python3 demo_setup.py` to generate private keys for 36 employees
+2. Run `python3 demo_encryption_balance.py`, `python3 demo_encryption_marketing.py`, `python3 demo_encryption_transactions.py` to encrypt 5 rows of the respective data
+3. Run `python3 demo_decryption_balance.py <internal employee id>`, `python3 demo_decryption_marketing.py <internal employee id>`, `python3 demo_decryption_transactions.py <internal employee id>` to decrypt 5 rows of the respective data using the specified employee's private key
