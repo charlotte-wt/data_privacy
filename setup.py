@@ -3,7 +3,7 @@ import pandas as pd
 import os
 
 data_dir = "data"
-user_attributes_df = pd.read_csv(f"{data_dir}/InternalUserInfo2.csv")
+user_attributes_df = pd.read_csv(f"{data_dir}/InternalUserInfo3.csv")
 
 employees = user_attributes_df[1000:]
 

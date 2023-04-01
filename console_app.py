@@ -6,10 +6,10 @@ import pandas as pd
 import decryption
 
 '''
-Load data from AppUserInfo2.csv
+Load data from AppUserInfo3.csv
 '''
 def load_appuserinfo():
-    return pd.read_csv('data/AppUserInfo2.csv')
+    return pd.read_csv('data/AppUserInfo3.csv')
 
 '''
 Return hashed password after encryption
@@ -74,15 +74,11 @@ while True:
         continue
 
     print('Welcome!')
-    current_internal_user_id = list(app_user_info.loc[app_user_info['LoginUserId'] == try_id]["InternalUserId"])[0]
+    current_user_internal_id = list(app_user_info.loc[app_user_info['LoginUserId'] == try_id]["InternalUserId"])[0]
     current_user_role = list(app_user_info.loc[app_user_info['LoginUserId'] == try_id]["UserRole"])[0]
-
-    decrypt = decryption.Decryption('InternalUserInfo2', current_internal_user_id)
-    decrypt.set_user_id(current_internal_user_id)
-
     while True:
         print('**********************************************************************************')
-        print(f'Internal User ID: {current_internal_user_id}')
+        print(f'Internal User ID: {current_user_internal_id}')
         print(f'Role: {current_user_role}')
         print('[0] Logout')
         print('[1] View your own profile')
