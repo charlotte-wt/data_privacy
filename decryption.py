@@ -3,6 +3,12 @@ import tempfile
 import pandas as pd
 import base64
 
+row_identifiers_dict = {
+    "EncryptedTransactionsInfo": ['TransactionId', 'OriginInternalUserId'],
+    "EncryptedUserBalanceInfo": ['InternalUserId'],
+    "EncryptedUserMarketingInfo": ['InternalUserId']
+}
+
 class Decryption:
     # constructor
     def __init__(self, file_name, user_id):
@@ -14,10 +20,12 @@ class Decryption:
 
         if (self.file_name != ''):
             self.encrypted_info = pd.read_csv(f"{self.data_dir}/{self.file_name}.csv", encoding='utf-8')
-            self.queried = self.encrypted_info[self.encrypted_info['InternalUserId'] == user_id]
+            self.queried = self.encrypted_info
+            self.row_identifiers = row_identifiers_dict.get(self.file_name, [])
         else:
             self.encrypted_info = None
             self.queried = None
+            self.row_identifiers = row_identifiers_dict.get(self.file_name, [])
         
 
         self.user_id = user_id # E-f12dfc5e-c57c-498e-ae88-661f49e986d6
@@ -32,16 +40,36 @@ class Decryption:
     Wrapper function to do decryption based on content in instance variables
     '''
     def do_decryption(self):
-        print(self.decrypt_rows(self.encrypted_info))
+        print(self.decrypt_rows(self.queried))
 
     def set_filename(self, filename):
         self.file_name = filename
         self.encrypted_info = pd.read_csv(f"{self.data_dir}/{self.file_name}.csv", encoding='utf-8')
-        self.queried = self.encrypted_info[self.encrypted_info['InternalUserId'] == self.user_id] 
+        self.queried = self.encrypted_info
+        self.row_identifiers = row_identifiers_dict.get(self.file_name, [])
 
     def set_user_id(self, uid):
         self.user_id = uid
         self.priv_key = f'{self.private_key_directory}/{self.user_id}_priv_key'
+
+    '''
+    Query functionalities
+    '''
+    def query_all(self):
+        self.queried = self.encrypted_info
+
+    def query_first_n_rows(self, n:int):
+        self.queried = self.encrypted_info.head(n)
+
+    def query_by_user_id(self, user_id:str):
+        if self.file_name == "EncryptedTransactionsInfo":
+            self.queried = self.encrypted_info[self.encrypted_info["OriginInternalUserId"] == user_id]
+        else:
+            self.queried = self.encrypted_info[self.encrypted_info["InternalUserId"] == user_id]
+
+    def select_columns(self, colnames:list):
+        # Note: You select the columns after you query & it automatically appends unencrypted data
+        self.queried = self.queried[self.row_identifiers + colnames]
 
     '''
     Wrapper function to decrypt all rows of a given dataframe
@@ -58,21 +86,20 @@ class Decryption:
         # Create a dictionary to store the decryption results of each row
         decrypted_row = dict()
 
-        decrypted_row['InternalUserId'] = row['InternalUserId']
-
         # Create temporary directory
         temp_dir = tempfile.TemporaryDirectory()
 
         # For each cell in the row
         for col in row.index:
-            if col == "InternalUserId":
+            if col in self.row_identifiers:
+                decrypted_row[col] = row[col]
                 continue
             
             # Encode as Base64 bytes, then decode the Base64 bytes to CPABE binary
             base64_encoded_data = row[col].encode('utf-8')
             encrypted_bytes = base64.decodebytes(base64_encoded_data)
 
-            filename = f"{row['InternalUserId']}_{col}"
+            filename = f"{row[self.row_identifiers[0]]}_{col}"
 
             output_filename = f"{temp_dir.name}/{filename}"
 
@@ -100,14 +127,3 @@ class Decryption:
 
         # Return the decrypted row as a dataframe
         return pd.DataFrame(decrypted_row)
-
-
-
-
-
-
-
-
-
-
-
