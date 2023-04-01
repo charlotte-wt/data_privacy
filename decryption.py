@@ -66,6 +66,7 @@ class Decryption:
             self.queried = self.encrypted_info[self.encrypted_info["OriginInternalUserId"] == user_id]
         else:
             self.queried = self.encrypted_info[self.encrypted_info["InternalUserId"] == user_id]
+        print("successfuly queried :>")
 
     def select_columns(self, colnames:list):
         # Note: You select the columns after you query & it automatically appends unencrypted data
@@ -75,7 +76,7 @@ class Decryption:
     Wrapper function to decrypt all rows of a given dataframe
     '''
     def decrypt_rows(self, df: pd.DataFrame):
-        decrypted_rows = [self._decrypt_row(row) for _, row in df.iterrows()]
+        decrypted_rows = [self._decrypt_row(row) for _ , row in df.iterrows()]
 
         return pd.concat(decrypted_rows, axis=0, ignore_index=True)
 

@@ -21,35 +21,41 @@ def hash_pwd(user_id: str, pwd: str):
 '''
 Retrieve user's profile details
 '''
-def view_profile(decrypt: decryption.Decryption):
+def view_profile(uid):
     # TO IMPLEMENT
     print('function 1')
-    decrypt.set_filename('EncryptedUserMarketingInfo')
+    decrypt = decryption.Decryption('EncryptedUserMarketingInfo', uid)
+    decrypt.query_by_user_id(uid)
     decrypt.do_decryption()
 
 '''
 Retrieve user's transaction details
 '''
-def view_transactions():
+def view_transactions(uid):
     # TO IMPLEMENT
     print('function 2')
-    # decrypt.set_filename('EncryptedTransactionsDataInfo')
-    # decrypt.do_decryption()
+    decrypt = decryption.Decryption('EncryptedTransactionsInfo', uid)
+    decrypt.query_by_user_id(uid)
+    decrypt.do_decryption()
 
 '''
 Retrieve other user's profile details
 '''
-def query_profile(user_id):
+def query_profile(uid, current_uid):
     # TO IMPLEMENT
-    print('function 3', user_id)
-
+    print('function 3')
+    decrypt = decryption.Decryption('EncryptedUserMarketingInfo', current_uid)
+    decrypt.query_by_user_id(uid)
+    decrypt.do_decryption()
 '''
 Retrieve other user's transaction details
 '''
-def query_transactions(user_id):
+def query_transactions(uid, current_uid):
     # TO IMPLEMENT
-    print('function 4', user_id)
-
+    print('function 4', uid, current_uid)
+    decrypt = decryption.Decryption('EncryptedTransactionsInfo', current_uid)
+    decrypt.query_by_user_id(uid)
+    decrypt.do_decryption()
 
 # Loads user info
 app_user_info = load_appuserinfo()
@@ -93,15 +99,17 @@ while True:
             print('You are now logged out.\n\n')
             break
         if option == '1':
-            view_profile(decrypt)
+            view_profile(current_user_internal_id)
         elif option == '2':
-            view_transactions()
+            view_transactions(current_user_internal_id)
         elif option == '3':
             query_id = input('Enter the User ID of the user you want to query for: ')
-            query_profile(query_id)
+            query_id_login = list(app_user_info.loc[app_user_info['LoginUserId'] == query_id]["InternalUserId"])[0]
+            query_profile(query_id_login, current_user_internal_id)
         elif option == '4':
             query_id = input('Enter the User ID of the user you want to query for: ')
-            query_transactions(query_id)
+            query_id_login = list(app_user_info.loc[app_user_info['LoginUserId'] == query_id]["InternalUserId"])[0]
+            query_transactions(query_id_login, current_user_internal_id)
         print()
 
 

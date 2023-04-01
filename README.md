@@ -34,4 +34,4 @@ To test it out:
 1. Rebuild the Docker image
 2. Run the container
 3. Run `python3 setup.py` to generate keys and encrypt files
-4. Run `test_console.py` to see how the decryption class is utilised
+4. Run `python3 test_console.py` to see how the decryption class is utilised
