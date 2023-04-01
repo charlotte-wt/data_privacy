@@ -19,16 +19,19 @@ cpabe-setup -h
 ```
 
 4. Remote Container:
-    1. Open command palette
-    2. Search and Select `Remote Containers: Open Folder in Container...
+
+   1. Open command palette
+   2. Search and Select Remote Containers: Open Folder in Container...
+
+5. If you have the Dev Containers extension:
+   1. Open command palette
+   2. Search and Select Dev Containers: Attach to Running Container...
 
 # Usage
 
 To test it out:
+
 1. Rebuild the Docker image
 2. Run the container
-3. Run these commands in order:
-   - `cpabe-setup`
-   - `python3 setup.py`
-   - `python3 encryption.py`
-   - `python3 decryption.py`
+3. Run `python3 setup.py` to generate keys and encrypt files
+4. Run `test_console.py` to see how the decryption class is utilised
