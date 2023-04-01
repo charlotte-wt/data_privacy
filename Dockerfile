@@ -8,11 +8,7 @@ COPY cpabe-0.11 ./cpabe-0.11
 
 COPY data ./data
 
-COPY setup-cpabe.sh .
-COPY setup.py .
-COPY encryption.py .
-COPY decryption.py .
-COPY requirements.txt .
+COPY . .
 
 RUN sh setup-cpabe.sh
 

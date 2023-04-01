@@ -39,7 +39,7 @@ def _decrypt_row(row: pd.Series):
 
     # For each cell in the row
     for col in row.index:
-        if col == "TransactionId":
+        if col == "TransactionId" or col == "OriginInternalUserId":
             continue
         
         # Encode as Base64 bytes, then decode the Base64 bytes to CPABE binary
