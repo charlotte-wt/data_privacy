@@ -2,14 +2,15 @@ import subprocess
 import tempfile
 import pandas as pd
 import base64
+import sys
+import time
 
+start_time = time.time()
 # Read the encrypted file
 data_dir = "data"
-encrypted_transactions_info = pd.read_csv(f"{data_dir}/EncryptedTransactionsInfo.csv", encoding='utf-8')
+encrypted_transactions_info = pd.read_csv(f"{data_dir}/Demo_EncryptedTransactionsInfo.csv", encoding='utf-8')
 
-queried = encrypted_transactions_info[encrypted_transactions_info['TransactionId'] == 'TRF-oEmCSzmyVZgm']
-
-employee_id = 'E-9ff56d0e-1c13-47e8-9e3d-7ec263b56b2d'
+employee_id = sys.argv[1]
 
 # Where to retrieve the private keys
 private_key_directory = "private-keys"
@@ -33,6 +34,7 @@ def _decrypt_row(row: pd.Series):
     decrypted_row = dict()
 
     decrypted_row['TransactionId'] = row['TransactionId']
+    decrypted_row['OriginInternalUserId'] = row['OriginInternalUserId']
 
     # Create temporary directory
     temp_dir = tempfile.TemporaryDirectory()
@@ -76,3 +78,4 @@ def _decrypt_row(row: pd.Series):
     return pd.DataFrame(decrypted_row)
 
 print(decrypt_rows(encrypted_transactions_info))
+print("Time taken to decrypt transactions: ", time.time() - start_time)

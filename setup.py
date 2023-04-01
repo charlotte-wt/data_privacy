@@ -8,8 +8,6 @@ from encryption import encrypt_marketing_data, encrypt_transactions_data, encryp
 data_dir = "data"
 user_attributes_df = pd.read_csv(f"{data_dir}/InternalUserInfo3.csv")
 
-employees = user_attributes_df[1000:]
-
 # Where to store the private keys
 private_key_directory = "private-keys"
 
@@ -24,18 +22,21 @@ def complete_setup():
 
     # Generate private keys for everyone
     start_priv_key = time.time()
-    employees.apply(generate_private_keys, axis=1)
+    user_attributes_df.apply(generate_private_keys, axis=1)
     print("Private keys generated: ", time.time() - start_priv_key)
 
     # Encrypt all information
     start_encrypt_marketing = time.time()
-    encrypt_marketing_data()
+    user_marketing_info = pd.read_csv(f"{data_dir}/UserMarketingInfo2.csv")
+    encrypt_marketing_data(user_marketing_info, "EncryptedUserMarketingInfo")
     print("Marketing data encrypted: ", time.time() - start_encrypt_marketing)
     start_encrypt_transactions = time.time()
-    encrypt_transactions_data()
+    transactions_data_info = pd.read_csv(f"{data_dir}/TransactionsData2.csv")
+    encrypt_transactions_data(transactions_data_info, "EncryptedTransactionsInfo")
     print("Transactions data encrypted: ", time.time() - start_encrypt_transactions)
     start_encrypt_balance = time.time()
-    encrypt_balance_data()
+    user_balance_info = pd.read_csv(f"{data_dir}/UserBalanceInfo2.csv")
+    encrypt_balance_data(user_balance_info, "EncryptedUserBalanceInfo")
     print("Balance data encrypted: ", time.time() - start_encrypt_balance)
 
 '''
@@ -43,20 +44,20 @@ Function to generate private keys for everyone
 '''
 def generate_private_keys(row):
     attributes_arr = [row['InternalUserId'].replace("-", ""), row['UserRole'].replace(" ", "_")]
-    if row['Rank']:
+    if row['UserRole'] != 'customer':
         attributes_arr.append(row['Rank'])
-    if row['WorkCountry']:
         attributes_arr.append(row['WorkCountry'])
-    if row['Rank'] == "Intern":
-        intern_date_end = int(datetime.datetime.strptime(row['InternDateEnd'], "%Y-%m-%d").timestamp())
-        attributes_arr.append(f"Date = {intern_date_end}")
+        if row['Rank'] == "Intern":
+            intern_date_end = int(datetime.datetime.strptime(row['InternDateEnd'], "%Y-%m-%d").timestamp())
+            attributes_arr.append(f"Date = {intern_date_end}")
         
     # Make directory if does not exist
     os.makedirs(private_key_directory, exist_ok=True)
 
     # Generate private keys for the user
     p = subprocess.run(["cpabe-keygen", "-o", f"{private_key_directory}/{row['InternalUserId']}_priv_key", "pub_key", "master_key"] + attributes_arr)
-    print(p)
+    # print(p)
     return p
 
-complete_setup()
+if __name__ == "__main__":
+    complete_setup()

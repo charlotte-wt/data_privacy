@@ -9,9 +9,7 @@ data_dir = "data"
 '''
 Encrypt marketing data
 '''
-def encrypt_marketing_data():
-    user_marketing_info = pd.read_csv(f"{data_dir}/UserMarketingInfo2.csv").head()
-
+def encrypt_marketing_data(user_marketing_info: pd.DataFrame, output_csv:str):
     # Access policy for User Marketing Info by column
     user_marketing_access_policy = {
         "FullName": "customer_support or (finance and VP) or marketing",
@@ -34,14 +32,12 @@ def encrypt_marketing_data():
 
     encrypted_user_marketing_info = _encrypt_rows(user_marketing_info, row_policy, user_marketing_access_policy, row_identifiers)
 
-    encrypted_user_marketing_info.to_csv(f"{data_dir}/EncryptedUserMarketingInfo.csv", index=False, encoding='utf-8')
+    encrypted_user_marketing_info.to_csv(f"{data_dir}/{output_csv}.csv", index=False, encoding='utf-8')
 
 '''
 Encrypt transaction data
 '''
-def encrypt_transactions_data():
-    transactions_data_info = pd.read_csv(f"{data_dir}/TransactionsData2.csv").head()
-
+def encrypt_transactions_data(transactions_data_info: pd.DataFrame, output_csv: str): 
     # Access policy for Transactions Info by column
     transactions_access_policy = {
         "OriginAccNumber": "(customer_support and VP)",
@@ -70,14 +66,12 @@ def encrypt_transactions_data():
 
     encrypted_transactions_info = _encrypt_rows(transactions_data_info, row_policy, transactions_access_policy, row_identifiers)
 
-    encrypted_transactions_info.to_csv(f"{data_dir}/EncryptedTransactionsInfo.csv", index=False, encoding='utf-8')
+    encrypted_transactions_info.to_csv(f"{data_dir}/{output_csv}.csv", index=False, encoding='utf-8')
 
 '''
 Encrypt user balance info
 '''
-def encrypt_balance_data():
-    user_balance_info = pd.read_csv(f"{data_dir}/UserBalanceInfo2.csv").head()
-
+def encrypt_balance_data(user_balance_info: pd.DataFrame, output_csv: str):
     # Access policy for User Balance Info by column
     user_balance_access_policy = {
         "CurrentBalance": "(customer_support and VP) or (finance and VP) or (marketing and VP)",
@@ -95,7 +89,7 @@ def encrypt_balance_data():
 
     encrypted_user_balance_info = _encrypt_rows(user_balance_info, row_policy, user_balance_access_policy, row_identifiers)
 
-    encrypted_user_balance_info.to_csv(f"{data_dir}/EncryptedUserBalanceInfo.csv", index=False, encoding='utf-8')
+    encrypted_user_balance_info.to_csv(f"{data_dir}/{output_csv}.csv", index=False, encoding='utf-8')
 
 ############################################################
 def _convert_datetime(date_str: str):
